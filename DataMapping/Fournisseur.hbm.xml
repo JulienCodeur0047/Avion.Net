@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="Fournisseur" table="AVV_DATA_FOURNISSEUR" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_FOURNISSEUR</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="FrnsCode" column="FRNS_CODE"  not-null="true" />
+	<property name="FrnsDesignation" column="FRNS_DESIGNATION"  not-null="false" />
+	<property name="FrnsNbHeures" column="FRNS_NB_HEURES"  not-null="false" />
+
+
+
+
+
+<bag name="ListFactureFournisseur" access="property"  table="AVV_DATA_FACTURE" 
+	collection-type="GnsUserCollection.Implementation.UserListType`1[[DALAvion.DataDomain.Facture,DALAvion]],GnsUserCollection" inverse="true" lazy="true" cascade="all-delete-orphan">
+	<key column="ID_FOURNISSEUR" />
+	<one-to-many class="Facture"/>
+</bag>
+
+
+</class>
+</hibernate-mapping>

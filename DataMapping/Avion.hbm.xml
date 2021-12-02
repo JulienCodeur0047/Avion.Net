@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="Avion" table="AVV_DATA_AVION" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA_AVION</param>
+	</generator>
+</id>
+
+  <version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="AvionCode" column="AVION_CODE"  not-null="true" />
+  <property name="AvionLibelle" column="AVION_LIBELLE"  not-null="true" />
+	<property name="AvionNbPlace" column="AVION_NB_PLACE"  not-null="true" />
+	<property name="AvionCharge" column="AVION_CHARGE"  not-null="true" />
+  
+  <many-to-one name="FournisseurRef" column="ID_FOURNISSEUR" class="Fournisseur"  cascade="none" />
+
+</class>
+</hibernate-mapping>

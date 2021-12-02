@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="VolDtl" table="AVV_DATA_VOL_DTL" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="ImputationCode" column="IMPUTATION_CODE"  not-null="true" />
+  <property name="ImputationPourcentage" column="IMPUTATION_POURCENTAGE"  not-null="true" />
+	<property name="DtlNbPlaceDisponible" column="DTL_NB_PLACE_DISPONIBLE"  not-null="true" />
+	<property name="DtlNbPlaceCadre" column="DTL_NB_PLACE_CADRE"  not-null="true" />
+	<property name="DtlNbPlaceNonCadre" column="DTL_NB_PLACE_NON_CADRE"  not-null="true" />
+	<property name="DtlNbPlaceMissionnaire" column="DTL_NB_PLACE_MISSIONNAIRE"  not-null="true" />
+	<property name="DtlNbPlaceVisiteur" column="DTL_NB_PLACE_VISITEUR"  not-null="true" />
+	<property name="DtlNbPlaceFamille" column="DTL_NB_PLACE_FAMILLE"  not-null="true" />
+  <property name="DtlNbPlaceAutres" column="DTL_NB_PLACE_AUTRES"  not-null="false" />
+	<property name="DtlChargeKgDisponible" column="DTL_CHARGE_KG_DISPONIBLE"  not-null="true" />
+	<property name="DtlChargeKgUtilise" column="DTL_CHARGE_KG_UTILISE"  not-null="true" />
+	<property name="DtlObservation" column="DTL_OBSERVATION"  not-null="false" />
+
+
+
+
+
+
+	<many-to-one name="HdrRef" column="ID_HDR" class="VolHdr"  cascade="none" />
+
+</class>
+</hibernate-mapping>

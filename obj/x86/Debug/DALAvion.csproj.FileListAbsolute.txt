@@ -1,0 +1,5 @@
+C:\Projets\Avion.Net\DLL\Debug\DALAvion.dll
+C:\Projets\Avion.Net\DLL\Debug\DALAvion.pdb
+C:\Projets\Avion.Net\DAL\DALAvion\obj\x86\Debug\DALAvion.csprojResolveAssemblyReference.cache
+C:\Projets\Avion.Net\DAL\DALAvion\obj\x86\Debug\DALAvion.dll
+C:\Projets\Avion.Net\DAL\DALAvion\obj\x86\Debug\DALAvion.pdb

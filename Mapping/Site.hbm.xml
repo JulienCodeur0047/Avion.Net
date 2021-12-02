@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.Domain" default-access="nosetter.lowercase-underscore" >
+<class name="Site" table="AVV_DATA_SITE" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA_SITE</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="SiteCode" column="SITE_CODE"  not-null="true" />
+	<property name="SiteLibelle" column="SITE_LIBELLE"  not-null="false" />
+
+
+</class>
+</hibernate-mapping>

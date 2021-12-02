@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{498B19D7-92C2-4D62-8053-B274A57185B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DALAvion</RootNamespace>
+    <AssemblyName>DALAvion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>..\..\DLL\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>..\..\DLL\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Tiers\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net, Version=1.2.0.2, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Tiers\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsBusinessObjectBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsBusinessObjectBase.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsDatabindingLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsDatabindingLib.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsNhibGenericDAL, Version=1.0.0.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsNhibGenericDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsQueryManager, Version=3.0.1.4000, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsQueryManager.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsUserCollection, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsUserCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="GnsValidationEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\GnsStdNhib\GnsValidationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Tiers\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Json.Net\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Nhibernate.3.3.1\4.0\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Oracle\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.2.40001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Spring.1.3.2.119\net\net.4.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Spring.1.3.2.119\net\net.4.0\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.2.40001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Spring.1.3.2.119\net\net.4.0\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate33, Version=1.3.2.40001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Librairies\Framework\Spring.1.3.2.119\net\net.4.0\Spring.Data.NHibernate33.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataDomain\Aeroport.cs" />
+    <Compile Include="DataDomain\Facture.cs" />
+    <Compile Include="DataDomain\FactVol.cs" />
+    <Compile Include="DataDomain\FactVolPartial.cs" />
+    <Compile Include="DataDomain\Fournisseur.cs" />
+    <Compile Include="DataDomain\FournisseurPartial.cs" />
+    <Compile Include="DataDomain\Imputation.cs" />
+    <Compile Include="DataDomain\QueryAeroport.cs" />
+    <Compile Include="DataDomain\QueryFacture.cs" />
+    <Compile Include="DataDomain\QueryFactVol.cs" />
+    <Compile Include="DataDomain\QueryFournisseur.cs" />
+    <Compile Include="DataDomain\QueryImputation.cs" />
+    <Compile Include="DataDomain\QueryVolPassager.cs" />
+    <Compile Include="DataDomain\QueryVolDtl.cs" />
+    <Compile Include="DataDomain\QueryVolHdr.cs" />
+    <Compile Include="DataDomain\VolPassager.cs" />
+    <Compile Include="DataDomain\VolDtl.cs" />
+    <Compile Include="DataDomain\VolHdr.cs" />
+    <Compile Include="DataDomain\Avion.cs" />
+    <Compile Include="DataDomain\QueryAvion.cs" />
+    <Compile Include="DataDomain\VolHdrPartial.cs" />
+    <Compile Include="Domain\QuerySite.cs" />
+    <Compile Include="Domain\Site.cs" />
+    <Compile Include="Domain\SitePartial.cs" />
+    <Compile Include="Implementations\DaoAeroport.cs" />
+    <Compile Include="Implementations\DaoAvion.cs" />
+    <Compile Include="Implementations\DaoFacture.cs" />
+    <Compile Include="Implementations\DaoFactVol.cs" />
+    <Compile Include="Implementations\DaoFournisseur.cs" />
+    <Compile Include="Implementations\DaoImputation.cs" />
+    <Compile Include="Implementations\DaoSite.cs" />
+    <Compile Include="Implementations\DaoVolPassager.cs" />
+    <Compile Include="Implementations\DaoVolDtl.cs" />
+    <Compile Include="Implementations\DaoVolHdr.cs" />
+    <Compile Include="Interfaces\IDaoAeroport.cs" />
+    <Compile Include="Interfaces\IDaoAvion.cs" />
+    <Compile Include="Interfaces\IDaoFacture.cs" />
+    <Compile Include="Interfaces\IDaoFactVol.cs" />
+    <Compile Include="Interfaces\IDaoFournisseur.cs" />
+    <Compile Include="Interfaces\IDaoImputation.cs" />
+    <Compile Include="Interfaces\IDaoSite.cs" />
+    <Compile Include="Interfaces\IDaoVolPassager.cs" />
+    <Compile Include="Interfaces\IDaoVolDtl.cs" />
+    <Compile Include="Interfaces\IDaoVolHdr.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DALApplication\DALApplication.csproj">
+      <Project>{634f3de1-9102-40dc-aee7-fc256690f2f3}</Project>
+      <Name>DALApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALSecurite\DALSecurite.csproj">
+      <Project>{3f9cdac8-2c20-40ac-ac90-0a0941d86147}</Project>
+      <Name>DALSecurite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataMapping\Avion.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Site.hbm.xml" />
+    <EmbeddedResource Include="XmlConfig\DALAvion.Dao.xml" />
+    <EmbeddedResource Include="XmlConfig\DALAvion.Transaction.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataMapping\Aeroport.hbm.xml" />
+    <EmbeddedResource Include="DataMapping\Imputation.hbm.xml" />
+    <EmbeddedResource Include="DataMapping\VolDtl.hbm.xml" />
+    <EmbeddedResource Include="DataMapping\VolHdr.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataMapping\Facture.hbm.xml" />
+    <EmbeddedResource Include="DataMapping\FactVol.hbm.xml" />
+    <EmbeddedResource Include="DataMapping\Fournisseur.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataMapping\VolPassager.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

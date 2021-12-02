@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="VolPassager" table="AVV_DATA_VOL_PASSAGER" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="PassagerImputation" column="PASSAGER_IMPUTATION"  not-null="true" />
+  <property name="PassagerMatricule" column="PASSAGER_MATRICULE"  not-null="false" />
+	<property name="PassagerNomPrenom" column="PASSAGER_NOM_PRENOM"  not-null="false" />
+	<property name="PassagerStatut" column="PASSAGER_STATUT"  not-null="true" />
+	<property name="PassagerMotif" column="PASSAGER_MOTIF"  not-null="false" />
+
+
+
+	<many-to-one name="HdrRef" column="ID_HDR" class="VolHdr"  cascade="none" />
+
+</class>
+</hibernate-mapping>

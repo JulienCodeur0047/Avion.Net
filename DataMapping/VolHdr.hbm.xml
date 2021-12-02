@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="VolHdr" table="AVV_DATA_VOL_HDR" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="HdrDate" column="HDR_DATE"  not-null="true" />
+	<property name="AvionCode" column="AVION_CODE"  not-null="false" />
+	<property name="HdrTypeVol" column="HDR_TYPE_VOL"  not-null="true" />
+
+  <property name="HdrNbPlace" column="HDR_NB_PLACE"  not-null="true" />
+  <property name="HdrCharge" column="HDR_CHARGE"  not-null="true" />
+  
+	<property name="HdrRegulier" column="HDR_REGULIER"  not-null="false" />
+	<property name="AeroportDepart" column="AEROPORT_DEPART"  not-null="true" />
+	<property name="AeroportDestination" column="AEROPORT_DESTINATION"  not-null="true" />
+	<property name="AeroportEscale" column="AEROPORT_ESCALE"  not-null="false" />
+	<property name="HeureDecolage" column="HEURE_DECOLAGE"  not-null="false" />
+	<property name="DureeMn01" column="DUREE_MN_01"  not-null="false" />
+	<property name="DureeMn02" column="DUREE_MN_02"  not-null="false" />
+	<property name="HdrObservation" column="HDR_OBSERVATION"  not-null="false" />
+	<property name="SysValide" column="SYS_VALIDE"  not-null="false" />
+	<property name="SysValideDate" column="SYS_VALIDE_DATE"  not-null="false" />
+	<property name="SysValideOperateur" column="SYS_VALIDE_OPERATEUR"  not-null="false" />
+
+  <property name="CoutVol"   formula="(SELECT SUM(HDR.MONTANT) FROM AVV_DATA_FACT_VOL HDR WHERE HDR.ID_VOL_HDR=ID)" />
+
+<bag name="ListVolPassagerHdr" access="property"  table="AVV_DATA_VOL_PASSAGER"
+     collection-type="GnsUserCollection.Implementation.UserListType`1[[DALAvion.DataDomain.VolPassager,DALAvion]],GnsUserCollection" inverse="true" lazy="true" cascade="all-delete-orphan">
+  <key column="ID_HDR" />
+  <one-to-many class="VolPassager"/>
+</bag>
+
+
+
+<bag name="ListVolDtlHdr" access="property"  table="AVV_DATA_VOL_DTL" 
+	collection-type="GnsUserCollection.Implementation.UserListType`1[[DALAvion.DataDomain.VolDtl,DALAvion]],GnsUserCollection" inverse="true" lazy="true" cascade="all-delete-orphan">
+	<key column="ID_HDR" />
+	<one-to-many class="VolDtl"/>
+</bag>
+
+  <many-to-one name="FournisseurRef" column="ID_FOURNISSEUR" class="Fournisseur"  cascade="none" />
+
+</class>
+</hibernate-mapping>

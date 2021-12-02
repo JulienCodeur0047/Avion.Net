@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DALAvion"
+	namespace="DALAvion.DataDomain" default-access="nosetter.lowercase-underscore" >
+<class name="Facture" table="AVV_DATA_FACTURE" dynamic-insert="true" dynamic-update="true" lazy="true" optimistic-lock="version" >
+
+<id name="Id"  column="ID" unsaved-value="null">
+	<generator class="sequence" >
+		<param name="sequence">SEQ_AVV_DATA</param>
+	</generator>
+</id>
+
+<version name="mVersion" access="field"  column="VER" unsaved-value="-1"/>
+	<property name="FactureDate" column="FACTURE_DATE"  not-null="true" />
+	<property name="FactureReference" column="FACTURE_REFERENCE"  not-null="true" />
+	<property name="FactureMontant" column="FACTURE_MONTANT"  not-null="false" />
+	<property name="SysValide" column="SYS_VALIDE"  not-null="false" />
+	<property name="SysValideDate" column="SYS_VALIDE_DATE"  not-null="false" />
+	<property name="SysValideOperateur" column="SYS_VALIDE_OPERATEUR"  not-null="false" />
+	<property name="VolDebut" column="VOL_DEBUT"  not-null="false" />
+	<property name="VolFin" column="VOL_FIN"  not-null="false" />
+  <property name="FactureObservation" column="FACTURE_OBSERVATION"  not-null="false" />
+
+
+
+
+
+<bag name="ListFactVolFacture" access="property"  table="AVV_DATA_FACT_VOL" 
+	collection-type="GnsUserCollection.Implementation.UserListType`1[[DALAvion.DataDomain.FactVol,DALAvion]],GnsUserCollection" inverse="true" lazy="true" cascade="all-delete-orphan">
+	<key column="ID_FACTURE" />
+	<one-to-many class="FactVol"/>
+</bag>
+
+	<many-to-one name="FournisseurRef" column="ID_FOURNISSEUR" class="Fournisseur"  cascade="none" />
+
+</class>
+</hibernate-mapping>
